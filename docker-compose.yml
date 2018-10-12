@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  # grabber service
+  btc-xplr:
+    build: ./btc-blockchain-explorer
+    image: btc-xplr
+    environment:
+      BTC_EXPLORER_BTC_NODE: http://wardencliffe:iYuN5iGNTLlyRi5mbxeBLUF18skVyG2HqNs2ANrUVS4=@52.14.93.190:25892
+      BTC_EXPLORER_DB_NAME: duxi_btc
+      BTC_EXPLORER_RETHINK: ${BTC_EXPLORER_RETHINK}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
